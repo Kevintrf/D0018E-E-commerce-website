@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include '../connect.php';
 
 //DB Login https://d0018e-232709.phpmyadmin.mysql.binero.se/
 ?>
