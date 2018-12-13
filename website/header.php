@@ -22,7 +22,8 @@ echo'
 	<div class="menu">
 		<div class="item_wrap centring">
 			<div class="item"><a href="index.php">Home</a></div>
-			<div class="item"><a href="products.php">Products</a></div>';
+			<div class="item"><a href="products.php">Products</a></div>;
+			<div class="item"><a href="search.php">Search</a></div>';
 			if(empty($_SESSION['userId'])){
 				echo '<div class="item"><a href="login.php">Login</a></div>';
 			}else{
