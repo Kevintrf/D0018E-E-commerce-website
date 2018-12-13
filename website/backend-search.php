@@ -1,24 +1,12 @@
 <?php 
 	include 'connect.php'; 
 	include 'functions.php';
-	include 'header.php';
-
-
 ?>
-<div id="prod_body" class="body_wrap centring">
-		<div id="prod_banner" class="banner_wrap">
-<br>
-
-
-
-<!-- IMPORANT SEARCH PART -->
-<form action="" method="post">
-    <input type="text" name="searchText" />
-    <input type="submit" value="Search" />
-</form>
 
 <?php
-	$search = $_POST['searchText'];
+// Attempt search query execution
+try{
+	$search = $_REQUEST["term"];
 	
 	if (!empty($search)){
 		//Only works with exact matches currently
@@ -51,9 +39,7 @@
 			}
 		}
 	}
+} catch(PDOException $e){
+    die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+}
 ?>
-<!-- IMPORANT SEARCH PART END-->
-
-		</div>
-	</div>
-</body>
