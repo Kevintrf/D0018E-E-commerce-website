@@ -9,50 +9,37 @@
 		<div id="prod_banner" class="banner_wrap">
 <br>
 
-
-
-<!-- IMPORANT SEARCH PART -->
-<form action="" method="post">
-    <input type="text" name="searchText" />
-    <input type="submit" value="Search" />
-</form>
-
-<?php
-	$search = $_POST['searchText'];
-	
-	if (!empty($search)){
-		//Only works with exact matches currently
-		$query = $pdo->prepare("SELECT * FROM products WHERE name LIKE '%$search%'");
-		$query->execute();
-		
-		if (empty($query->fetch(PDO::FETCH_ASSOC))){
-			echo "<br>No results found.";
-		}
-		
-		else{
-			$query->execute();
-			echo "Results for: " . $search . "<br>";
-			while ($row = $query->fetch(PDO::FETCH_ASSOC)){
-				/*echo "<br> Product: " . $row['name'];
-				echo "<br> Product ID: " . $row['product_id'];
-				echo "<br> Price: " . $row['price'];
-				echo "<br> Stock: " . $row['stock'];
-				echo "<br> Description : " . $row['description'];
-				echo "<br> Picture: " . $row['picture'];
-				echo "<br>";*/
-				echo'
-				<a href="pr.php?id='.$row['product_id'].'">
-				<div id="prod_first_item" class="banner box" >
-				<div id="prod_img" class="banner_imgwrap"><img src="'.$row['picture'].'" alt="destiny"></div>
-				<div id="prod_bread"class="banner_text"><p>' . $row['name'] .'</p></div>
-				<div class="banner_header"><p>Price: '.$row['price'].' SEK</p></div>
-				</div>			
-				</a>';
-			}
-		}
-	}
-?>
-<!-- IMPORANT SEARCH PART END-->
+<head>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("backend-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+</head>
+<body>
+    <div class="search-box">
+        <input type="text" autocomplete="off" placeholder="Search product..." />
+        <div class="result"></div>
+    </div>
 
 		</div>
 	</div>
