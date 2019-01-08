@@ -163,7 +163,7 @@ if (isset($_GET['moveActive']))
 				
 				<br><br>
 				<a href="admin.php?delete='.$rad[5].'">Delete order</a><br>
-				<a href="admin.php?moveComplete='.$rad[5].'">Move order to complete</a><br>
+				<a href="admin.php?moveBasket='.$rad[5].'">Move order to basket</a><br>
 				<a href="admin.php?moveActive='.$rad[5].'">Move order to active</a><br><br>
 				';
 			}
