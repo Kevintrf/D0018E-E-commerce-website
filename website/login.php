@@ -21,17 +21,6 @@
 		<span class="required">*<?php echo $passwordErr;?></span>
    	</div>
 
-	<div>  
-		<label for="robot">Are you a robot?</label>
-        	<input type="radio" name="robotCheck"'; 
-				if(isset($robotCheck) && $robotCheck=="no"){
-					echo '"checked" value="no"> No
-        			<span class="required">';
-					echo $robotCheckErr;
-				}
-		echo '</span><br>
-    		</div>
-
 		<div>
         		<input type="submit" name="submit" value="Logga in">
         		<span class="required">'; 

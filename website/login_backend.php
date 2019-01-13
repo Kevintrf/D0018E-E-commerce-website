@@ -2,7 +2,7 @@
 error_reporting(E_ERROR); // because two session_start() is called. does work it's ok
 session_start();
 include 'connect.php';
-    $usernameErr = $passwordErr = $robotCheckErr = $loginMsg = "";
+    $usernameErr = $passwordErr = $loginMsg = "";
     try{
         if($_SERVER["REQUEST_METHOD"] == "POST") {
 			// Trim unnecessary characters
@@ -21,12 +21,6 @@ include 'connect.php';
 				$passwordErr = "Password field is empty!";
 			}
 			
-			if(!empty($_POST["robotCheck"])) {
-				$robotCheck = $_POST["robotCheck"];
-			} else {
-				$robotCheckErr = "SO YOU ARE A ROBOT HUH?!";
-			}
-			
 			$idQuery = $pdo->prepare("SELECT user_id FROM users WHERE username = ? AND password = ? ");
 			$idQuery->execute([$username, $password]);
 			$userId = $idQuery->fetchColumn();
@@ -43,7 +37,7 @@ include 'connect.php';
 			//$fullname = $nameQuery->fetchColumn();
 
 			
-            if($userId && !$robotCheckErr) {
+            if($userId) {
                 $_SESSION['userId'] = $userId;
                 $_SESSION["fullname"] = $fullname;
                 $loginMsg = "Login successful! Welcome $fullname!";
