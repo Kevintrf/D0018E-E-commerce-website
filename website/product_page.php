@@ -19,10 +19,7 @@ echo'
 		<div class="review_img">
 			<img src="'.$row[5].'" alt="">
 		</div>
-		<!-- Två textfält !-->
-		<div class="text_wrap">
-			<p>'.$row[4].'</p>
-		</div>
+		<!-- Textfält !-->
 		<div class="text_wrap">
 			<p>'.$row[4].'</p>
 		</div>
@@ -173,7 +170,7 @@ echo'
 			<?php
 				for($x=0; $x<2; $x++){
 					echo '
-						<a href="read_ea.html">
+						<a href="product_page.pph?id=FIXTHIS">
 							<div class="banner box">
 								<div class="banner_imgwrap"><img src="'.$row[5].'" alt=""></div>
 								<div class="banner_header"><p>'.$row[3].'</p></div>
