@@ -72,7 +72,7 @@
     		while($row = $query->fetch(PDO::FETCH_ASSOC) ){
     		?>
     		   <span> <tr>
-    			<td><a href="order.php?<?php echo $row["order_id"]; ?>"><?php echo $row["order_id"];?></a></td>
+    			<td><a href="order.php?id=<?php echo $row["order_id"]; ?>"><?php echo $row["order_id"];?></a></td>
     			<td><?php echo $row["date_stamp"]; ?></td>
     			<td><?php echo "Sent"; ?></td>
     		    </tr></span>

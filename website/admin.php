@@ -45,7 +45,7 @@ if (isset($_GET['moveActive']))
 	}
 ?>
 
-<div class="body_wrap centring">
+<div class="body_wrap" id="account">
 	<div class = "admin-page">
 		<h2>Admin page</h2>
 		<a href="upload.php">Upload products</a>
@@ -83,7 +83,7 @@ if (isset($_GET['moveActive']))
 				
 				<br><br>
 				<a href="admin.php?delete='.$rad[5].'">Delete order</a><br>
-				<a href="admin.php?moveComplete='.$rad[5].'">Move order to complete</a><br>
+				<a href="admin.php?moveComplete='.$rad[5].'">Move order to complete</a><br><br>
 				';
 			}
 

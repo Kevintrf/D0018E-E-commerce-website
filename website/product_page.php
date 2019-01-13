@@ -27,7 +27,7 @@ echo'
 			<p>'.$row[4].'</p>
 		</div>
 		<div class="text_wrap">
-		<p>Price: '.$row[2].' SEK</p>';
+		<p>Price: '.$row['price'].' SEK</p>';
 		if(empty($_SESSION['userId'])){
 			echo '<p>Please <a href="login.php">Login</a> To Purchase.</p>';
 		}else{
